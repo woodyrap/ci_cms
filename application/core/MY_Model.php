@@ -27,7 +27,7 @@ class MY_Model extends CI_Model {
         if (!count($this->db->ar_orderby)) {
             $this->db->order_by($this->_order_by);
         }
-        return $this->db->get($this->_table_name)->result();
+        return $this->db->get($this->_table_name)->$method();
     }
 
     public function get_by($where, $single = FALSE) {
