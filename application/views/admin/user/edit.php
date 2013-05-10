@@ -8,11 +8,11 @@
     <table class="table">
         <tr>            
             <td>Name</td>
-            <td><?php echo form_input('name'); ?></td>
+            <td><?php echo form_input('name', set_value('name',$user->name)); ?></td>
         </tr>
         <tr>            
             <td>Email</td>
-            <td><?php echo form_input('email'); ?></td>
+            <td><?php echo form_input('email', set_value('email',$user->email)); ?></td>
         </tr>
         <tr>            
             <td>Password</td>
@@ -24,7 +24,7 @@
         </tr>
         <tr>            
             <td></td>
-            <td><?php echo form_submit('submit', 'Log in', 'class="btn btn-primary"'); ?></td>
+            <td><?php echo form_submit('submit', 'Save', 'class="btn btn-primary"'); ?></td>
         </tr>
     </table>
     <?php echo form_close(); ?>

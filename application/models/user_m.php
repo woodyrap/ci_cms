@@ -22,11 +22,6 @@ class User_m extends MY_Model {
             'label' => 'Name',
             'rules' => 'trim|required|xss_clean'
         ),
-        'order' => array(
-            'field' => 'order',
-            'label' => 'Order',
-            'rules' => 'trim|is_natural'
-        ),
         'email' => array(
             'field' => 'email',
             'label' => 'Email',
@@ -75,6 +70,14 @@ class User_m extends MY_Model {
 
     public function hash($string) {
         return hash('sha512', $string . config_item('encryption_key'));
+    }
+    
+    public function get_new() {
+        $user = new stdClass();
+        $user->name = '';
+        $user->email = '';
+        $user->password = '';
+        return $user;
     }
 
 }
