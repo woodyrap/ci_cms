@@ -6,7 +6,7 @@ class Page extends Frontend_Controller {
         $this->load->model('page_m');
         }
     public function index() {
-        $this->load->view('_main_layout');
+        $this->load->view('_main_layout', $this->data);
     }
     public function save() {
         $data = array(
