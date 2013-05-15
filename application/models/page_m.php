@@ -10,7 +10,12 @@ class Page_m extends MY_Model {
             'label' => 'Parent',
             'rules' => 'trim|intval'
         ),
-        'title' => array(
+        'template' => array(
+            'field' => 'template',
+            'label' => 'Template',
+            'rules' => 'trim|required|xss_clean'
+        ),
+                'title' => array(
             'field' => 'title',
             'label' => 'Title',
             'rules' => 'trim|required|max_length[100]|xss_clean'
@@ -34,6 +39,7 @@ class Page_m extends MY_Model {
         $page->body = '';
         $page->order = 1;
         $page->parent_id = 0;
+        $page->template = 'pagea';
         return $page;
     }
 
@@ -45,6 +51,7 @@ class Page_m extends MY_Model {
     }
 
     public function get_nested() {
+        $this->db->order_by($this->_order_by);
         $pages = $this->db->get('pages')->result_array();
 
         $array = array();

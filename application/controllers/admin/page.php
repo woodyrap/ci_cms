@@ -34,7 +34,7 @@ class Page extends Admin_Controller {
         
         //Process the form
         if ($this->form_validation->run() == TRUE) {
-            $data = $this->page_m->array_from_post(array('title', 'slug', 'body', 'parent_id', 'order'));
+            $data = $this->page_m->array_from_post(array('title', 'slug', 'body', 'template','parent_id', 'order'));
             $this->page_m->save($data, $id);
             redirect('admin/page');
         }
