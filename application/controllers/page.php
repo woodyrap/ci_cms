@@ -5,8 +5,7 @@ class Page extends Frontend_Controller {
         parent::__construct();
         $this->load->model('page_m');
         }
-    public function index() {
-        
+    public function index() {        
         //Fetch the page template
         $this->data['page']=  $this->page_m->get_by(array('slug'=> (string) $this->uri->segment(1)), TRUE);
         count($this->data['page']) || show_404(current_url());

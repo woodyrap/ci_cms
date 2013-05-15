@@ -39,8 +39,9 @@
 */
 
 $route['default_controller'] = "page";
-$route['404_override'] = '';
-$route[':any']='page/index/$1';
+$route['404_override'] = 'page';
+$route['article/(:num)/(:any)'] = 'article/index/$1/$2';
+/*$route[':any']='page/index/$1';*/
 
 
 /* End of file routes.php */
