@@ -3,7 +3,7 @@
 <body>    
     <div class="container">
         <section>
-            <h1><?php echo config_item('site_name'); ?></h1>
+            <h1><?php echo anchor('', strtoupper(config_item('site_name'))); ?></h1>
         </section>
         
         <div class="navbar">
@@ -17,18 +17,8 @@
 
     <div class="container">
         <div class="row">
-            <!-- Main content -->
-            <div class="span9">
-                <h2>Main content</h2>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="span3">
-                <h2>Recent news</h2>
-            </div>
-
+            <?php $this->load->view('templates/'. $subview); ?>
         </div>
-
     </div>
 
     <?php $this->load->view('components/page_tail'); ?>
