@@ -52,7 +52,9 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database', 'multilanguage');
+
+//MultiLanguage is a library make by Simon Martin for use multilanguage files.
 
 
 /*
@@ -96,7 +98,7 @@ $autoload['config'] = array('cms_config');
 |
 */
 
-$autoload['language'] = array();
+$autoload['language'] = array('app');
 
 
 /*

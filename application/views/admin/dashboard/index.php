@@ -1,4 +1,4 @@
-<h2>Recently modified articles</h2>
+<h2><?php echo $this->lang->line('title_recently_modified_articles'); ?></h2>
 
 <?php if (count($recent_articles)): ?>
     <ul>

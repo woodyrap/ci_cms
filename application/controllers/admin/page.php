@@ -20,7 +20,7 @@ class Page extends Admin_Controller {
         //Fetch a page or set a new page
         if ($id) {
             $this->data['page'] = $this->page_m->get($id);
-            count($this->data['page']) || $this->data['errors'][] = 'User could not be found';
+            count($this->data['page']) || $this->data['errors'][] = $this->lang->line('msg_user_could_not_be_found');
         } else {
             $this->data['page'] = $this->page_m->get_new();
         }
@@ -55,7 +55,7 @@ class Page extends Admin_Controller {
         $page = $this->page_m->get();
 
         if (count($page)) {
-            $this->form_validation->set_message('_unique_slug', '%s should be unique.');
+            $this->form_validation->set_message('_unique_slug', $this->lang->line('msg_should_be_unique'));
             return FALSE;
         }
         return TRUE;

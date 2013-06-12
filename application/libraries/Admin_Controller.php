@@ -9,6 +9,10 @@ class Admin_Controller extends MY_Controller {
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->model('user_m');
+        
+        // Load data
+        $this->data['meta_title']=config_item('site_name');
+        $this->data['web_master']=config_item('webmaster_email');
 
         //Login check
         $exception_uris = array(
@@ -19,6 +23,18 @@ class Admin_Controller extends MY_Controller {
             if ($this->user_m->loggedin() == FALSE) {
                 redirect('admin/user/login');
             }
+        }
+    }
+
+    public function language() {
+        $lang = $this->input->get('lang');
+        $uri = $this->input->get('uri');
+
+        if ($lang == 'english' || $lang == 'spanish') {
+            $this->session->set_userdata('language', $lang);
+            redirect($uri);
+        } else {
+            redirect('/');
         }
     }
 

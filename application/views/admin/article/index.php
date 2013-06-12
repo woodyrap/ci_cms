@@ -1,13 +1,13 @@
 <section>
-    <h2>News articles</h2>
-    <?php echo anchor('admin/article/edit', '<i class="icon-plus"></i> Add a article'); ?>
+    <h2><?php echo $this->lang->line('title_news_articles'); ?></h2>
+    <?php echo anchor('admin/article/edit', '<i class="icon-plus"></i>' .  $this->lang->line('index_add_a_article')); ?>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Pubdate</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th><?php echo $this->lang->line('index_title'); ?></th>
+                <th><?php echo $this->lang->line('index_pubdate'); ?></th>
+                <th><?php echo $this->lang->line('index_edit'); ?></th>
+                <th><?php echo $this->lang->line('index_delete'); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3">We could not find any articles.</td>
+                    <td colspan="3"><?php echo $this->lang->line('index_we_could_not_find_any_articles'); ?></td>
                 </tr>
             <?php endif; ?>	
         </tbody>

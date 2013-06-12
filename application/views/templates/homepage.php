@@ -12,7 +12,7 @@
 <!-- Sidebar -->
 <div class="span3 sidebar">
     <h2>Recent news</h2>
-    <?php echo anchor($news_archive_link, '+ News archive'); ?>
+    <?php echo anchor($news_archive_link, $this->lang->line('news_archive')); ?>
     <?php $articles = array_slice($articles, 3); ?>
     <?php echo article_links($articles); ?>
 </div>

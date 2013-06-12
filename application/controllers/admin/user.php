@@ -19,7 +19,7 @@ class User extends Admin_Controller {
         //Fetch a user or set a new user
         if ($id) {
             $this->data['user'] = $this->user_m->get($id);
-            count($this->data['user']) || $this->data['errors'][] = 'User could not be found';
+            count($this->data['user']) || $this->data['errors'][] = $this->lang->line('msg_user_could_not_be_found');
         } else {
             $this->data['user'] = $this->user_m->get_new();
         }
@@ -53,7 +53,7 @@ class User extends Admin_Controller {
         $user = $this->user_m->get();
 
         if (count($user)) {
-            $this->form_validation->set_message('_unique_email', '%s should be unique.');
+            $this->form_validation->set_message('_unique_email', $this->lang->line('msg_should_be_unique'));
             return FALSE;
         }
         return TRUE;
@@ -79,7 +79,7 @@ class User extends Admin_Controller {
             if ($this->user_m->login() == TRUE) {
                 redirect($dashboard);
             } else {
-                $this->session->set_flashdata('error', 'That email/password combination does not exist');
+                $this->session->set_flashdata('error', $this->lang->line('msg_email_password_does_not_exist'));
                 redirect('admin/user/login', 'refresh');
             }
         }

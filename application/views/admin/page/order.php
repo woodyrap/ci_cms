@@ -1,8 +1,8 @@
 <section>
-    <h2>Order pages</h2>
-    <p class="alert alert-info">Drag to order pages and then click 'Save'</p>
+    <h2><?php echo $this->lang->line('order_pages'); ?></h2>
+    <p class="alert alert-info"><?php echo $this->lang->line('order_drag_to_order_pages_and_then_click_save'); ?></p>
     <div id="orderResult"></div>
-    <input type="button" id="save" value="Save" class="btn btn-primary" />
+    <input type="button" id="save" value="<?php echo $this->lang->line('order_save_button'); ?>" class="btn btn-primary" />
 </section>
 <script>
     $(function() {

@@ -20,7 +20,7 @@ class Article extends Admin_Controller {
         //Fetch a article or set a new article
         if ($id) {
             $this->data['article'] = $this->article_m->get($id);
-            count($this->data['article']) || $this->data['errors'][] = 'User could not be found';
+            count($this->data['article']) || $this->data['errors'][] = $this->lang->line('msg_user_could_not_be_found');
         } else {
             $this->data['article'] = $this->article_m->get_new();
         }                 

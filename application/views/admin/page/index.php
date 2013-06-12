@@ -1,13 +1,13 @@
 <section>
-    <h2>Pages</h2>
-    <?php echo anchor('admin/page/edit', '<i class="icon-plus"></i> Add a page'); ?>
+    <h2><?php echo $this->lang->line('title_pages'); ?></h2>
+    <?php echo anchor('admin/page/edit', '<i class="icon-plus"></i>' . $this->lang->line('index_add_a_page')); ?>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Parent</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th><?php echo $this->lang->line('index_title'); ?></th>
+                <th><?php echo $this->lang->line('index_parent'); ?></th>
+                <th><?php echo $this->lang->line('index_edit'); ?></th>
+                <th><?php echo $this->lang->line('index_delete'); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3">We could not find any pages.</td>
+                    <td colspan="3"><?php echo $this->lang->line('index_we_could_not_find_any_pages'); ?></td>
                 </tr>
             <?php endif; ?>	
         </tbody>

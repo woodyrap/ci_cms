@@ -4,11 +4,11 @@
         <div class="navbar-inner">
             <a class="brand" href="<?php echo site_url('admin/dashboard'); ?>"><?php echo $meta_title; ?></a>
             <ul class="nav">
-                <li class="active"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                <li><?php echo anchor('admin/page', 'pages'); ?></li>
-                <li><?php echo anchor('admin/page/order', 'order pages'); ?></li>
-                <li><?php echo anchor('admin/article', 'new articles'); ?></li>
-                <li><?php echo anchor('admin/user', 'users'); ?></li>
+                <li class="active"><a href="<?php echo site_url('admin/dashboard'); ?>"><?php $this->lang->line('dashboard'); ?></a></li>
+                <li><?php echo anchor('admin/page', $this->lang->line('pages')); ?></li>
+                <li><?php echo anchor('admin/page/order', $this->lang->line('order_pages')); ?></li>
+                <li><?php echo anchor('admin/article', $this->lang->line('news_articles')); ?></li>
+                <li><?php echo anchor('admin/user', $this->lang->line('users')); ?></li>
             </ul>
         </div>
     </div>
@@ -22,8 +22,8 @@
             <!-- Sidebar -->
             <div class="span3">
                 <section>
-                    <?php echo mailto('rportillo@test.com', '<i class="icon-user"></i>rportillo@test.com'); ?><br>                    
-                    <?php echo anchor('admin/user/logout', '<i class="icon-off"></i>logout'); ?>
+                    <?php echo mailto($web_master, '<i class="icon-user"></i>' . $web_master); ?><br>                    
+                    <?php echo anchor('admin/user/logout', '<i class="icon-off"></i>' . $this->lang->line('logout')); ?>
                 </section>
             </div>
         </div>

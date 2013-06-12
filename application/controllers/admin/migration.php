@@ -13,7 +13,7 @@ class Migration extends Admin_Controller {
             show_error($this->migration->error_string());
         }
         else {
-            echo 'Migration Worked!';
+            echo $this->lang->line('msg_migration_worked');
         }
     }
 
