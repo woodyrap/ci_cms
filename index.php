@@ -23,7 +23,7 @@ date_default_timezone_set('America/Tegucigalpa');
 
 //CHANGE-RAP: I define development environment.
 switch (dirname(__FILE__)) {
-    case 'C:\wamp\www\ci_cms':
+    case 'C:\wamp\www\cms_rap':
         define('ENVIRONMENT', 'development');
         break;
     default:

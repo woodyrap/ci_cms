@@ -1,3 +1,3 @@
 <?php
-$config['site_name'] = 'Death Star Diary';
-$config['webmaster_email'] = 'rportillo@sabesa.com.sv';
+$config['site_name'] = 'RAP´s Blog';
+$config['webmaster_email'] = 'rafael_a_portillo@yahoo.com';

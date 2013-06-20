@@ -1,6 +1,7 @@
 <?php
 // Bof: Front End
 $lang['news_archive'] = '+ News archive';
+$lang['back_to'] = 'Back to ';
 // Eof: Front End
 
 // Bof: views/admin/_layout_main.php
