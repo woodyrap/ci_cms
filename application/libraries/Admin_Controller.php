@@ -13,6 +13,7 @@ class Admin_Controller extends MY_Controller {
         // Load data
         $this->data['meta_title']=config_item('site_name');
         $this->data['web_master']=config_item('webmaster_email');
+        $this->data['portfolio']=config_item('portfolio');
 
         //Login check
         $exception_uris = array(

@@ -85,6 +85,88 @@ function get_menu($array, $child = FALSE) {
     return $str;
 }
 
+function get_carousel_indicator($array, $target) {   
+    $str = '<ol class="carousel-indicators">' . PHP_EOL;
+
+    if (count($array)) {
+        $str .= '';
+        
+        $cnt = 0;
+        foreach ($array as $item) {            
+            if (($cnt == 0 )){                
+                $active = TRUE;
+                $str .= '<li data-target="#' . $target . '" data-slide-to="' . $cnt . '" class="active"></li>'. PHP_EOL;
+            }else{
+                $active = FALSE;
+                $str .= '<li data-target="#' . $target . '" data-slide-to="' . $cnt . '"></li>'. PHP_EOL;
+            }
+            $cnt = $cnt + 1;
+        }
+
+        $str .= '</ol><!-- End of carousel-indicators -->' . PHP_EOL;
+    }
+
+    return $str;
+}
+
+function get_carousel_slide($array) {   
+    $str = '';
+
+    if (count($array)) {
+        $str .= '<div class="carousel-inner">' . PHP_EOL;
+        
+        $cnt = 0;
+        foreach ($array as $item) {            
+            if (($cnt == 0 )){                
+                $active = TRUE;
+                $str .= '<div class="active item" style="text-align:center;" data-slide-number="' . $cnt .'">' . $item['image'] . '</div>'. PHP_EOL;
+            }else{
+                $active = FALSE;
+                $str .= '<div class="item" style="text-align:center;" data-slide-number="' . $cnt .'">' . $item['image'] . '</div>'. PHP_EOL;
+            }
+            $cnt = $cnt + 1;
+        }
+
+        $str .= '</div><!-- End of carousel-inner -->' . PHP_EOL;
+    }
+
+    return $str;
+}
+
+function get_carousel_text($array) {   
+    $str = '';
+
+    if (count($array)) {
+        $str .= '<div style="display: none;" id="slide-content">' . PHP_EOL;
+        $cnt = 0;
+        foreach ($array as $item) {   
+            $slide_number = 'slide-content-' . $cnt;
+            $str .= '<div id="' . $slide_number . '">' . PHP_EOL;
+            $str .= '<h4>' . $item['name'] . '</h4>' . PHP_EOL;
+            $str .= '<p>' . $item['shortdesc'] . '</p>' . PHP_EOL;
+            $str .= '<a data-toggle="modal" class="btn" href="#modal-' . $slide_number .'">View More...' . '</a>' . PHP_EOL;
+            $str .= '</div><!--slide-content-# -->' . PHP_EOL;
+            
+            //Modal Data
+            $str .= '<div class="modal hide fade" tabindex="-1" role="dialog" id="modal-' . $slide_number . '"><!-modal-slide-content-# -->' . PHP_EOL;            
+            $str .= '<div class="modal-header">' . PHP_EOL;
+            $str .= '<button type="button" class="close" data-dismiss="modal">✕</button>' . PHP_EOL;
+            $str .= '<h3>' . $item['name'] . '</h3>' . PHP_EOL;
+            $str .= '</div><!-- end-modal-header -->' . PHP_EOL;
+            
+            $str .= '<div class="modal-body" style="text-align:center;"><!-- modal-body -->' . PHP_EOL;
+            $str .= $item['longdesc'] . PHP_EOL;
+            $str .= '</div><!-- end-modal-body -->' . PHP_EOL;
+            $str .= '</div><!-- end-modal-slide-content-# -->' . PHP_EOL;
+                        
+            $cnt = $cnt + 1;
+        }
+
+        $str .= '</div><!-- End of slide-content -->' . PHP_EOL;
+    }
+
+    return $str;
+}
 /**
  * Dump helper. Functions to dump variables to the screen, in a nicley formatted manner.
  * @author Joost van Veen
@@ -120,4 +202,19 @@ if (!function_exists('dump_exit')) {
         exit;
     }
 
+}
+// Function taked of Robert Mullaney's Blog.
+if ( ! function_exists('field_enums'))
+{
+    function field_enums($table = '', $field = '')
+    {
+        $enums = array();
+        if ($table == '' || $field == '') return $enums;
+        $CI =& get_instance();
+        preg_match_all("/'(.*?)'/", $CI->db->query("SHOW COLUMNS FROM {$table} LIKE '{$field}'")->row()->Type, $matches);
+        foreach ($matches[1] as $key => $value) {
+            $enums[$value] = $value; 
+        }
+        return $enums;
+    }  
 }

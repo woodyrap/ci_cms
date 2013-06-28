@@ -8,7 +8,11 @@
                 <li><?php echo anchor('admin/page', $this->lang->line('pages')); ?></li>
                 <li><?php echo anchor('admin/page/order', $this->lang->line('order_pages')); ?></li>
                 <li><?php echo anchor('admin/article', $this->lang->line('news_articles')); ?></li>
-                <li><?php echo anchor('admin/user', $this->lang->line('users')); ?></li>
+                <li><?php echo anchor('admin/user', $this->lang->line('users')); ?></li>                
+                <?php if ($portfolio == 'yes'): ?>
+                    <li><?php echo anchor('admin/category', $this->lang->line('category')); ?></li>
+                    <li><?php echo anchor('admin/product', $this->lang->line('product')); ?></li>                
+                <?php endif; ?>
             </ul>
         </div>
     </div>

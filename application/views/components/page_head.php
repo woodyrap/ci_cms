@@ -10,6 +10,7 @@
         <link href="<?php echo site_url('css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
         <link href="<?php echo site_url('css/styles.css'); ?>" rel="stylesheet" media="screen">
         <link href="<?php echo site_url('css/bootstrap-responsive.css'); ?>" rel="stylesheet" media="screen">                
+       
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     </head>

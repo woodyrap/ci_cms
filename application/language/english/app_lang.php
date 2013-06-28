@@ -10,6 +10,8 @@ $lang['pages'] = 'Pages';
 $lang['order_pages'] = 'Order Pages';
 $lang['news_articles'] = 'News Articles';
 $lang['users'] = 'Users';
+$lang['category'] = 'Categories';
+$lang['product'] = 'Products';
 $lang['logout'] = 'Logout';
 // Eof: views/admin/_layout_main.php
 
@@ -91,6 +93,56 @@ $lang['index_delete'] = 'Delete';
 $lang['index_we_could_not_find_any_user'] = 'We could not find any user.';
 // Eof: views/admin/user/index.php
 
+// Bof: views/admin/category/index.php
+$lang['title_category'] = 'Categories';
+$lang['index_add_a_category'] = 'Add a category';
+$lang['index_category_name'] = 'Name';
+$lang['index_category_parent_id'] = 'Parent';
+$lang['index_category_edit'] = 'Edit';
+$lang['index_category_delete'] = 'Delete';
+$lang['index_we_could_not_find_any_categories'] = 'We could not find any categories.';
+// Eof: views/admin/category/index.php
+
+// Bof: views/admin/category/edit.php
+$lang['edit_category'] = 'Edit category: ';
+$lang['add_a_new_category'] = 'Add a new category. ';
+$lang['category_name'] = 'Name';
+$lang['category_shortdesc'] = 'Short description';
+$lang['category_longdesc'] = 'Long description';
+$lang['category_status'] = 'Status';
+$lang['category_parent_id'] = 'Parent id';
+$lang['category_button_save'] = 'Save';
+// Eof: views/admin/category/edit.php
+
+// Bof: views/admin/product/index.php
+$lang['title_product'] = 'Products';
+$lang['index_add_a_product'] = 'Add a product';
+$lang['index_product_name'] = 'Name';
+$lang['index_product_category_id'] = 'Category';
+$lang['index_product_edit'] = 'Edit';
+$lang['index_product_delete'] = 'Delete';
+$lang['index_we_could_not_find_any_products'] = 'We could not find any products.';
+// Eof: views/admin/product/index.php
+
+// Bof: views/admin/product/edit.php
+$lang['edit_product'] = 'Edit product: ';
+$lang['add_a_new_product'] = 'Add a new product. ';
+$lang['product_name'] = 'Name';
+$lang['product_shortdesc'] = 'Short description';
+$lang['product_longdesc'] = 'Long description';
+$lang['product_thumbnail'] = 'Thumbnail';
+$lang['product_image'] = 'Image';
+$lang['product_class'] = 'Class';
+$lang['product_grouping'] = 'Grouping';
+$lang['product_price'] = 'Price';
+$lang['product_product_order'] = 'Product Order';
+$lang['product_featured'] = 'Featured';
+$lang['product_other_feature'] = 'Other feature';
+$lang['product_status'] = 'Status';
+$lang['product_category_id'] = 'Category';
+$lang['product_button_save'] = 'Save';
+// Eof: views/admin/product/edit.php
+
 // Bof: controller/admin/article.php
 $lang['msg_user_could_not_be_found'] = 'User could not be found';
 // Eof: controller/admin/article.php
@@ -106,3 +158,11 @@ $lang['msg_should_be_unique'] = '%s should be unique.';
 // Bof: controller/admin/user.php
 $lang['msg_email_password_does_not_exist'] = 'That email/password combination does not exist';
 // Eof: controller/admin/user.php
+
+// Bof: controller/admin/category.php
+$lang['msg_category_could_not_be_found'] = 'Category could not be found';
+// Eof: controller/admin/category.php
+
+// Bof: controller/admin/product.php
+$lang['msg_product_could_not_be_found'] = 'Product could not be found';
+// Eof: controller/admin/product.php

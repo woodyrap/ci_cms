@@ -1,0 +1,4 @@
+Aqui algunas instrucciones
+1. Información general del proyecto - Configurar CONFIG/CMS_CONFIG.PHP
+2. Cambiar informacion FILE MANAGER, en JS/TINYMCE/PLUGINS/FILEMANAGER/CONFIG.PHP
+3. En el archivo donde se use tinymce.init se debe configurar el idioma.

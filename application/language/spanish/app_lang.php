@@ -10,6 +10,8 @@ $lang['pages'] = 'Paginas';
 $lang['order_pages'] = 'Orden Paginas';
 $lang['news_articles'] = 'Noticias';
 $lang['users'] = 'Usuarios';
+$lang['category'] = 'Categorias';
+$lang['product'] = 'Productos';
 $lang['logout'] = 'Salir';
 // Eof: views/admin/_layout_main.php
 
@@ -91,6 +93,56 @@ $lang['index_delete'] = 'Borrar';
 $lang['index_we_could_not_find_any_user'] = 'Nosotros no podemos encontrar ningun usuario.';
 // Eof: views/admin/user/index.php
 
+// Bof: views/admin/category/index.php
+$lang['title_category'] = 'Categorias';
+$lang['index_add_a_category'] = 'Agregar una categoria';
+$lang['index_category_name'] = 'Nombre';
+$lang['index_category_parent_id'] = 'Padre';
+$lang['index_category_edit'] = 'Editar';
+$lang['index_category_delete'] = 'Borrar';
+$lang['index_we_could_not_find_any_categories'] = 'Nosotro no podemos encontrar ninguna categoria.';
+// Eof: views/admin/category/index.php
+
+// Bof: views/admin/category/edit.php
+$lang['edit_category'] = 'Editar categoria: ';
+$lang['add_a_new_category'] = 'Agregar una nueva categoria. ';
+$lang['category_name'] = 'Nombre';
+$lang['category_shortdesc'] = 'Descripcion Corta';
+$lang['category_longdesc'] = 'Descripcion Larga';
+$lang['category_status'] = 'Status';
+$lang['category_parent_id'] = 'Parent_id';
+$lang['category_button_save'] = 'Grabar';
+// Eof: views/admin/category/edit.php
+
+// Bof: views/admin/product/index.php
+$lang['title_product'] = 'Productos';
+$lang['index_add_a_product'] = 'Agregar un producto';
+$lang['index_product_name'] = 'Nombre';
+$lang['index_product_category_id'] = 'Categoria';
+$lang['index_product_edit'] = 'Editar';
+$lang['index_product_delete'] = 'Borrar';
+$lang['index_we_could_not_find_any_products'] = 'Nosotros no podemos encontrar un producto.';
+// Eof: views/admin/product/index.php
+
+// Bof: views/admin/product/edit.php
+$lang['edit_product'] = 'Editar producto: ';
+$lang['add_a_new_product'] = 'Agregar un nuevo producto. ';
+$lang['product_name'] = 'Nombre';
+$lang['product_shortdesc'] = 'Descripcion Corta';
+$lang['product_longdesc'] = 'Descripcion Larga';
+$lang['product_thumbnail'] = 'Thumbnail';
+$lang['product_image'] = 'Imagen';
+$lang['product_class'] = 'Clase';
+$lang['product_grouping'] = 'Grupo';
+$lang['product_price'] = 'Precio';
+$lang['product_product_order'] = 'Código Ordenar Producto';
+$lang['product_featured'] = 'Featured';
+$lang['product_other_feature'] = 'Other feature';
+$lang['product_status'] = 'Status';
+$lang['product_category_id'] = 'Categoria';
+$lang['product_button_save'] = 'Grabar';
+// Eof: views/admin/product/edit.php
+
 // Bof: controller/admin/article.php
 $lang['msg_user_could_not_be_found'] = 'Usuario no fue encontrado.';
 // Eof: controller/admin/article.php
@@ -106,3 +158,11 @@ $lang['msg_should_be_unique'] = '%s debera ser unico.';
 // Bof: controller/admin/user.php
 $lang['msg_email_password_does_not_exist'] = 'La combinacion de correo electronico/clave no existe.';
 // Eof: controller/admin/user.php
+
+// Bof: controller/admin/category.php
+$lang['msg_category_could_not_be_found'] = 'Categoria no puede ser encontrada.';
+// Eof: controller/admin/category.php
+
+// Bof: controller/admin/product.php
+$lang['msg_product_could_not_be_found'] = 'Producto no puede ser encontrada.';
+// Eof: controller/admin/product.php

@@ -4,6 +4,7 @@ class Page extends Frontend_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('page_m');
+        $this->load->model('product_m');
         }
     public function index() {        
         //Fetch the page template
@@ -64,4 +65,31 @@ class Page extends Frontend_Controller {
         $this->db->limit($perpage, $offset);
         $this->data['articles'] = $this->article_m->get();
     }
+    
+    private function _portfolio() {
+        $this->data['listing'] = $this->product_m->getAllsubcatByCat();
+    }
+    
+    function products_by_category($id) {
+        //Fetch the page template
+        $this->data['page']=  $this->page_m->get_by(array('template'=> 'portfolio'), TRUE);
+        
+        $product = $this->product_m->getProductsByCategory($id);
+        /** this returns all, i.e. id, name, shortdesc, longdesc, thumbnail,
+         * image, grouping, status, category_id, featured and price
+         * from product db.
+         */
+        if (!count($product)) {
+            // no product so redirect
+            redirect('Portfolio');
+        }
+        $this->data['products'] = $product;
+        add_meta_title($this->data['page']->title);
+        
+        //Load the view
+        $this->data['subview'] = '../admin/product/product';
+        $this->load->view('_main_layout', $this->data);
+    }
+    
+    
 }
