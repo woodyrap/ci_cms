@@ -11,27 +11,35 @@ p.pubdate { font-style: italic; font-size: 0.9em; }
 
 /* Removes the default 20px margin and creates some padding space for the indicators and controls */
 .carousel {
-	margin-bottom: 0;
-	padding: 0 40px 30px 40px;
+    margin-bottom: 0;
+    padding: 0 40px 30px 40px;
 }
 /* Reposition the controls slightly */
 .carousel-control {
-	left: -12px;
+    left: -12px;
 }
 .carousel-control.right {
-	right: -12px;
+    right: -12px;
 }
 /* Changes the position of the indicators */
 .carousel-indicators {
-	right: 50%;
-	top: 0px;
-	bottom: auto;
-	margin-right: -19px;
+    right: 50%;
+    top: 0px;
+    bottom: auto;
+    margin-right: -19px;
 }
 /* Changes the colour of the indicators */
 .carousel-indicators li {
-	background: #c0c0c0;
+    background: #c0c0c0;
 }
 .carousel-indicators .active {
-background: #333333;
+    background: #333333;
+}
+/* Loader by carousel*/
+.loader
+{
+    background-image: url('../img/ajax-loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
 }

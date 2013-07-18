@@ -22,6 +22,11 @@ class Category_m extends MY_Model {
             'label' => 'Long description',
             'rules' => 'trim|required'
         ),
+        'image' => array(
+            'field' => 'image',
+            'label' => 'Image',
+            'rules' => 'trim|required'
+        ),
     );
 
     public function get_new() {
@@ -29,6 +34,7 @@ class Category_m extends MY_Model {
         $category->name = '';
         $category->shortdesc = '';
         $category->longdesc = '';
+        $category->image = '';
         $category->status = 'active';
         $category->parent_id = 0;
         return $category;

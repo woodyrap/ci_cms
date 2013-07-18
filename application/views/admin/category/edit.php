@@ -16,6 +16,10 @@
         <td><?php echo form_textarea('longdesc', set_value('longdesc', $category->longdesc), 'class="tmce1"'); ?></td>
     </tr>
     <tr>            
+        <td><?php echo $this->lang->line('category_image'); ?></td>
+        <td><?php echo form_textarea('image', set_value('image', $category->image), 'class="tmce2"'); ?></td>
+    </tr>
+    <tr>            
         <td><?php echo $this->lang->line('category_status'); ?></td>
         <td><?php echo form_dropdown('status', $enums_status, $this->input->post('status') ? $this->input->post('status') : $category->status); ?></td>
     </tr>

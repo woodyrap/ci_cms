@@ -12,9 +12,9 @@ function btn_edit($uri) {
 }
 
 function btn_delete($uri) {
-    return anchor($uri, '<i class="icon-remove"></i>', array(
-                'onclick' => "return confirm('You are about to delete a record. This cannot be undone. Are you sure?');"
-            ));
+    $CI = & get_instance();
+    $action = "return confirm('" . $CI->lang->line('confirm_delete') . "');";
+    return anchor($uri, '<i class="icon-remove"></i>', array('onclick' => $action));
 }
 
 function article_link($article) {
@@ -35,12 +35,13 @@ function article_links($articles) {
 }
 
 function get_excerpt($article, $numwords = 50) {
+    $CI = & get_instance();
     $string = '';
     $url = article_link($article);
     $string .= '<h2>' . anchor($url, e($article->title)) . '</h2>';
     $string .= '<p class="pubdate">' . e($article->pubdate) . '</p>';
     $string .= '<p>' . e(limit_to_numwords(strip_tags($article->body), $numwords)) . '</p>';
-    $string .= '<p>' . anchor($url, 'Read more ›', array('title' => e($article->title))) . '</p>';
+    $string .= '<p>' . anchor($url, $CI->lang->line('view_more'), array('title' => e($article->title))) . '</p>';
     return $string;
 }
 
@@ -134,6 +135,7 @@ function get_carousel_slide($array) {
 }
 
 function get_carousel_text($array) {   
+    $CI = & get_instance();
     $str = '';
 
     if (count($array)) {
@@ -141,24 +143,13 @@ function get_carousel_text($array) {
         $cnt = 0;
         foreach ($array as $item) {   
             $slide_number = 'slide-content-' . $cnt;
+            $slide_url    = site_url() . 'modal.php'; 
             $str .= '<div id="' . $slide_number . '">' . PHP_EOL;
             $str .= '<h4>' . $item['name'] . '</h4>' . PHP_EOL;
-            $str .= '<p>' . $item['shortdesc'] . '</p>' . PHP_EOL;
-            $str .= '<a data-toggle="modal" class="btn" href="#modal-' . $slide_number .'">View More...' . '</a>' . PHP_EOL;
+            $str .= '<p>' . $item['shortdesc'] . '</p>' . PHP_EOL;            
+            $str .= '<a href="#" class="edit-record" data-id="' . $item['id'] . '">'. $CI->lang->line('view_more') .'</a>' . PHP_EOL;
             $str .= '</div><!--slide-content-# -->' . PHP_EOL;
-            
-            //Modal Data
-            $str .= '<div class="modal hide fade" tabindex="-1" role="dialog" id="modal-' . $slide_number . '"><!-modal-slide-content-# -->' . PHP_EOL;            
-            $str .= '<div class="modal-header">' . PHP_EOL;
-            $str .= '<button type="button" class="close" data-dismiss="modal">✕</button>' . PHP_EOL;
-            $str .= '<h3>' . $item['name'] . '</h3>' . PHP_EOL;
-            $str .= '</div><!-- end-modal-header -->' . PHP_EOL;
-            
-            $str .= '<div class="modal-body" style="text-align:center;"><!-- modal-body -->' . PHP_EOL;
-            $str .= $item['longdesc'] . PHP_EOL;
-            $str .= '</div><!-- end-modal-body -->' . PHP_EOL;
-            $str .= '</div><!-- end-modal-slide-content-# -->' . PHP_EOL;
-                        
+                                             
             $cnt = $cnt + 1;
         }
 

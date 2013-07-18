@@ -1,7 +1,11 @@
 <?php
 // Bof: Front End
-$lang['news_archive'] = '+ News archive';
+$lang['news_archive'] = '+ News archive';$lang['close'] = 'Close';
 $lang['back_to'] = 'Back to ';
+$lang['close'] = 'Close';
+$lang['search'] = 'Search';
+$lang['view_more'] = 'Read More...';
+$lang['confirm_delete'] = 'You are about to delete a record. This cannot be undone. Are you sure?';
 // Eof: Front End
 
 // Bof: views/admin/_layout_main.php
@@ -109,6 +113,7 @@ $lang['add_a_new_category'] = 'Add a new category. ';
 $lang['category_name'] = 'Name';
 $lang['category_shortdesc'] = 'Short description';
 $lang['category_longdesc'] = 'Long description';
+$lang['category_image'] = 'Image';
 $lang['category_status'] = 'Status';
 $lang['category_parent_id'] = 'Parent id';
 $lang['category_button_save'] = 'Save';

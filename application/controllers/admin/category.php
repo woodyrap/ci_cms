@@ -37,7 +37,7 @@ class Category extends Admin_Controller {
         
         //Process the form
         if ($this->form_validation->run() == TRUE) {
-            $data = $this->category_m->array_from_post(array('name', 'shortdesc', 'longdesc', 'status', 'parent_id'));
+            $data = $this->category_m->array_from_post(array('name', 'shortdesc', 'longdesc', 'status', 'parent_id', 'image'));
             $this->category_m->save($data, $id);
             redirect('admin/category');
         }

@@ -9,7 +9,7 @@
         <link href="<?php echo site_url('css/admin.css'); ?>" rel="stylesheet" media="screen">
         <link href="<?php echo site_url('css/datepicker.css'); ?>" rel="stylesheet" media="screen">
 
-        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="<?php echo site_url('js/jquery-1.9.1.js'); ?>"></script>
         <script src="<?php echo site_url('js/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo site_url('js/bootstrap-datepicker.js'); ?>"></script>
 

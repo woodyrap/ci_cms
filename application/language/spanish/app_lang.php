@@ -2,6 +2,10 @@
 // Bof: Front End
 $lang['news_archive'] = '+ Noticias ';
 $lang['back_to'] = 'Regresar a ';
+$lang['close'] = 'Cerrar';
+$lang['search'] = 'Buscar';
+$lang['view_more'] = 'Leer +...';
+$lang['confirm_delete'] = 'Está a punto de eliminar un registro. Esto no se puede deshacer. ¿Está seguro?';
 // Eof: Front End
 
 // Bof: views/admin/_layout_main.php
@@ -109,6 +113,7 @@ $lang['add_a_new_category'] = 'Agregar una nueva categoria. ';
 $lang['category_name'] = 'Nombre';
 $lang['category_shortdesc'] = 'Descripcion Corta';
 $lang['category_longdesc'] = 'Descripcion Larga';
+$lang['category_image'] = 'Imagen';
 $lang['category_status'] = 'Status';
 $lang['category_parent_id'] = 'Parent_id';
 $lang['category_button_save'] = 'Grabar';

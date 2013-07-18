@@ -40,3 +40,20 @@
 </div>
 
 
+<!-- Modal Definition -->
+<div class="modal hide" id="dialog-carousel">
+    <!--    
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" id="btn-close">x</button>
+            <h3>ABOUT OF</h3>
+        </div>
+    -->
+
+    <div class="modal-body">
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-primary" id="btn-close"><?php echo $this->lang->line('close'); ?></a>        
+    </div>
+</div>
+<!-- Enf of Modal Definition -->
