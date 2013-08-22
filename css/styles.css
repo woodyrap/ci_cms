@@ -43,3 +43,32 @@ p.pubdate { font-style: italic; font-size: 0.9em; }
     background-position: center;
     height: 100px;
 }
+/* Valid by Contact form */
+label.valid {
+    width: 16px;
+    height: 16px;
+    background: url('../img/bullet_valid.png') center center no-repeat;
+    display: inline-block;
+    text-indent: -9999px;
+}
+label.error {
+    font-weight: bold;
+    padding: 6px 8px;
+    margin-top: 2px;
+}
+/* Iframe Media */
+.fluidMedia {
+    position: relative;
+    padding-bottom: 56.25%; /* proportion value to aspect ratio 16:9 */
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.fluidMedia iframe {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

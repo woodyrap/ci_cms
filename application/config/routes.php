@@ -41,6 +41,8 @@
 $route['default_controller'] = "page";
 $route['404_override'] = 'page';
 $route['article/(:num)/(:any)'] = 'article/index/$1/$2';
+$route['page/portfolio/(:num)'] = 'portfolio/$1';// when is not a first page
+$route['page/poftfolio/'] = 'portfolio';//when is a first page
 /*$route[':any']='page/index/$1';*/
 
 

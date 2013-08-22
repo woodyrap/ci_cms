@@ -4,6 +4,8 @@ class Frontend_Controller extends MY_Controller {
 
     function __construct() {
         parent::__construct();
+        //Load helpers and libraries
+        $this->load->helper('form');
         
         //Load stuff
         $this->load->model('page_m');
@@ -15,6 +17,7 @@ class Frontend_Controller extends MY_Controller {
         $this->data['news_archive_link']=$this->page_m->get_archive_link();
         $this->data['meta_title']=config_item('site_name');
         $this->data['web_master']=config_item('webmaster_email');
+        $this->data['url_google_maps']=config_item('url_google_maps');
     }
 
 }

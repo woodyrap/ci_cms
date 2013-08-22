@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'multilanguage');
+$autoload['libraries'] = array('database', 'multilanguage', 'session');
 
 //MultiLanguage is a library make by Simon Martin for use multilanguage files.
 

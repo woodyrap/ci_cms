@@ -9,7 +9,7 @@
     </tr>
     <tr>            
         <td><?php echo $this->lang->line('page_template'); ?></td>
-        <td><?php echo form_dropdown('template', array('page'=>'Page', 'news_archive'=>'News archive', 'homepage'=>'Homepage', 'portfolio'=>'Portfolio'), $this->input->post('template') ? $this->input->post('template') : $page->template); ?></td>
+        <td><?php echo form_dropdown('template', array('page'=>'Page', 'news_archive'=>'News archive', 'homepage'=>'Homepage', 'portfolio'=>'Portfolio', 'contact'=>'Contact Us'), $this->input->post('template') ? $this->input->post('template') : $page->template); ?></td>
     </tr>
     <tr>            
         <td><?php echo $this->lang->line('page_title'); ?></td>

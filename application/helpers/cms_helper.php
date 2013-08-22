@@ -17,6 +17,11 @@ function btn_delete($uri) {
     return anchor($uri, '<i class="icon-remove"></i>', array('onclick' => $action));
 }
 
+function btn_info($id) {
+    $str = '<a href="#" class="info-record" modal-id="' . $id . '"><i class="icon-info-sign"></i></a>';
+    return $str;
+}
+
 function article_link($article) {
     return 'article/' . intval($article->id) . '/' . e($article->slug);
 }
@@ -86,20 +91,20 @@ function get_menu($array, $child = FALSE) {
     return $str;
 }
 
-function get_carousel_indicator($array, $target) {   
+function get_carousel_indicator($array, $target) {
     $str = '<ol class="carousel-indicators">' . PHP_EOL;
 
     if (count($array)) {
         $str .= '';
-        
+
         $cnt = 0;
-        foreach ($array as $item) {            
-            if (($cnt == 0 )){                
+        foreach ($array as $item) {
+            if (($cnt == 0)) {
                 $active = TRUE;
-                $str .= '<li data-target="#' . $target . '" data-slide-to="' . $cnt . '" class="active"></li>'. PHP_EOL;
-            }else{
+                $str .= '<li data-target="#' . $target . '" data-slide-to="' . $cnt . '" class="active"></li>' . PHP_EOL;
+            } else {
                 $active = FALSE;
-                $str .= '<li data-target="#' . $target . '" data-slide-to="' . $cnt . '"></li>'. PHP_EOL;
+                $str .= '<li data-target="#' . $target . '" data-slide-to="' . $cnt . '"></li>' . PHP_EOL;
             }
             $cnt = $cnt + 1;
         }
@@ -110,20 +115,20 @@ function get_carousel_indicator($array, $target) {
     return $str;
 }
 
-function get_carousel_slide($array) {   
+function get_carousel_slide($array) {
     $str = '';
 
     if (count($array)) {
         $str .= '<div class="carousel-inner">' . PHP_EOL;
-        
+
         $cnt = 0;
-        foreach ($array as $item) {            
-            if (($cnt == 0 )){                
+        foreach ($array as $item) {
+            if (($cnt == 0)) {
                 $active = TRUE;
-                $str .= '<div class="active item" style="text-align:center;" data-slide-number="' . $cnt .'">' . $item['image'] . '</div>'. PHP_EOL;
-            }else{
+                $str .= '<div class="active item" style="text-align:center;" data-slide-number="' . $cnt . '">' . $item['image'] . '</div>' . PHP_EOL;
+            } else {
                 $active = FALSE;
-                $str .= '<div class="item" style="text-align:center;" data-slide-number="' . $cnt .'">' . $item['image'] . '</div>'. PHP_EOL;
+                $str .= '<div class="item" style="text-align:center;" data-slide-number="' . $cnt . '">' . $item['image'] . '</div>' . PHP_EOL;
             }
             $cnt = $cnt + 1;
         }
@@ -134,22 +139,22 @@ function get_carousel_slide($array) {
     return $str;
 }
 
-function get_carousel_text($array) {   
+function get_carousel_text($array) {
     $CI = & get_instance();
     $str = '';
 
     if (count($array)) {
         $str .= '<div style="display: none;" id="slide-content">' . PHP_EOL;
         $cnt = 0;
-        foreach ($array as $item) {   
+        foreach ($array as $item) {
             $slide_number = 'slide-content-' . $cnt;
-            $slide_url    = site_url() . 'modal.php'; 
+            $slide_url = site_url() . 'modal.php';
             $str .= '<div id="' . $slide_number . '">' . PHP_EOL;
             $str .= '<h4>' . $item['name'] . '</h4>' . PHP_EOL;
-            $str .= '<p>' . $item['shortdesc'] . '</p>' . PHP_EOL;            
-            $str .= '<a href="#" class="edit-record" data-id="' . $item['id'] . '">'. $CI->lang->line('view_more') .'</a>' . PHP_EOL;
+            $str .= '<p>' . $item['shortdesc'] . '</p>' . PHP_EOL;
+            $str .= '<a href="#" class="edit-record" data-id="' . $item['id'] . '">' . $CI->lang->line('view_more') . '</a>' . PHP_EOL;
             $str .= '</div><!--slide-content-# -->' . PHP_EOL;
-                                             
+
             $cnt = $cnt + 1;
         }
 
@@ -158,6 +163,41 @@ function get_carousel_text($array) {
 
     return $str;
 }
+
+// Do Alert with bootbox
+function do_alert($msg) {
+    echo '<script type="text/javascript"> alert("' . $msg . '"); </script>';
+}
+
+function generate_table($array) {
+    $CI  = & get_instance();
+    $str = '';
+    $cnt = 0 ;
+    if (count($array)) {
+        $str .= '<table class="table table-striped">' . PHP_EOL;
+        $str .= '<thead>' . PHP_EOL;
+        $str .= '<tr>' . PHP_EOL;
+        $str .= '<th>' . $CI->lang->line('index_product_name') . '</th>' . PHP_EOL;
+        $str .= '<th>' . $CI->lang->line('index_product_category_id') . '</th>' . PHP_EOL; 
+        $str .= '<th>' . $CI->lang->line('index_product_edit') . '</th>' . PHP_EOL;
+        $str .= '</tr>' . PHP_EOL;
+        $str .= '</thead>' . PHP_EOL;
+        $str .= '<tbody>' . PHP_EOL;
+        foreach ($array as $item) {
+            $str .= '<tr>' . PHP_EOL;
+            $str .= '<th>' . $item['name'] . '</th>' . PHP_EOL;
+            $str .= '<th>' . $item['category_name'] . '</th>' . PHP_EOL;
+            $str .= '<th>' . btn_info($item['id']) . '</th>' . PHP_EOL;
+            $str .= '</tr>' . PHP_EOL;
+            $cnt = $cnt + 1;
+        }
+        $str .= '</tbody>' . PHP_EOL;
+        $str .= '</table><!-- End of table -->' . PHP_EOL;
+    }
+
+    return $str;
+}
+
 /**
  * Dump helper. Functions to dump variables to the screen, in a nicley formatted manner.
  * @author Joost van Veen
@@ -195,17 +235,18 @@ if (!function_exists('dump_exit')) {
 
 }
 // Function taked of Robert Mullaney's Blog.
-if ( ! function_exists('field_enums'))
-{
-    function field_enums($table = '', $field = '')
-    {
+if (!function_exists('field_enums')) {
+
+    function field_enums($table = '', $field = '') {
         $enums = array();
-        if ($table == '' || $field == '') return $enums;
-        $CI =& get_instance();
+        if ($table == '' || $field == '')
+            return $enums;
+        $CI = & get_instance();
         preg_match_all("/'(.*?)'/", $CI->db->query("SHOW COLUMNS FROM {$table} LIKE '{$field}'")->row()->Type, $matches);
         foreach ($matches[1] as $key => $value) {
-            $enums[$value] = $value; 
+            $enums[$value] = $value;
         }
         return $enums;
-    }  
+    }
+
 }

@@ -140,4 +140,24 @@ class Product_m extends MY_Model {
         return $data;
     }
 
+    function getSearch($search) {
+        $match = $search;
+        $id = null;
+        $single = false;
+        $this->db->select('products.*, p.name as category_name ');
+        $this->db->from('products');
+        $this->db->join('categories as p ', 'products.category_id = p.id ', 'left ');
+
+        if ($match) {
+            $this->db->like('products.name ', $match);
+            $this->db->or_like('products.shortdesc ', $match);
+            $this->db->or_like('products.longdesc ', $match);
+            $this->db->or_like('products.class ', $match);
+            $this->db->or_like('products.grouping ', $match);
+        }
+        
+        $query = $this->db->get();       
+        return $query->result_array();
+    }
+
 }
